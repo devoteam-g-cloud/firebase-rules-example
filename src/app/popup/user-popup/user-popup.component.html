@@ -1,0 +1,16 @@
+<div [formGroup]="userData"> 
+    <div class="column-field">
+        <mat-form-field appearance="outline">
+            <mat-label>EMAIL</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>ROLE</mat-label>
+            <input matInput formControlName="role">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="form-actions">
+        <button [mat-dialog-close] mat-flat-button>cancel</button>
+        <button class="main-button" (click)="onSubmit()"  [disabled]="userData.invalid" mat-raised-button>submit</button>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div  class="loader">
+    <mat-progress-bar *ngIf="isLoading" mode="query"></mat-progress-bar>
+</div>
+<button mat-raised-button class="google-login-button" appGoogleSignin>
+    <span *ngIf="!disabled">LOGIN</span>
+    </button>

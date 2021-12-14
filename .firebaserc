@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "test-fb-rules": {
+      "hosting": {
+        "front": [
+          "test-fb-rules"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "test-fb-rules"
+  }
+}
