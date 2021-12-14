@@ -2,10 +2,10 @@
 
 A firebase rules example with GET/POST use cases.
 
-find the firebase project here :`https://console.firebase.google.com/project/test-fb-rules-335109`  
-The rules can be edited here : `https://console.firebase.google.com/project/test-fb-rules-335109/firestore/rules` 
-Set parameters in your ts files that can be used in firebase rules e.g :  
-https://github.com/devoteam-g-cloud/firebase-rules-example/blob/main/src/app/services/api.service.ts`
+find the firebase project here :`https://console.firebase.google.com/project/YOUR_PROJECT_ID`
+
+## Usage  
+- Copy the content of `firebase.rules` file to your `https://console.firebase.google.com/project/YOUR_PROJECT_ID/firestore/rules`.
 
 ## Development server
 

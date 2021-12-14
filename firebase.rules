@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{document=**} {
+      allow read;
+      allow create: if requestMatchesUid();
+      allow update: if canUpdate();
+      allow delete: if hasAdminRole();
+    }
+
+    
+    
+    // this matches if the auth user id === the request uid sent in the post payload (see api.services)
+    function requestMatchesUid() {
+    	return request.auth.uid == request.resource.data.uid;
+    }
+    
+    // other possible functions :
+    
+    
+    // this matches if the the authenticated user id === the document id (good if we want to make sure each user edits their own docs).
+    function resourceMatchesUid() {
+    	return request.auth.uid == resource.data.uid;
+    }
+    
+    
+    function canUpdate() {
+    return request.resource.data.canUpdate == true
+    }
+    
+    function roles() {   
+      return ['ADMIN', 'USER'];
+    }
+    
+    function adminRoles() {
+    	return ['Admin'];
+    }
+    
+    
+    // Having a backend, we can build the claims with a role, and use it as comparison
+    function hasAdminRole() {
+    	return request.auth.uid != null && request.auth.token.role in adminRoles();
+    }
+    
+    function isAppUser() {
+    	return request.auth.uid != null && request.auth.token.role in roles();
+    }
+    
+  }
+}
+
